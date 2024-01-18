@@ -3,6 +3,7 @@ import type { AxiosResponse } from "axios";
 import "dotenv/config";
 import type ApiResponse from "types/ApiResponse";
 import { getDayOfYear } from "date-fns";
+import tweet from "tweet";
 
 const apiUrl = process.env.API_URL;
 
@@ -21,7 +22,8 @@ const fetchData = () => {
     .then((response: AxiosResponse<ApiResponse>) => {
       const { irish, english }: ApiResponse = response.data;
 
-      console.log(`${irish} means ${english}`);
+      console.log(`Today - ${today}: ${irish} - ${english}`);
+      tweet(irish, english);
     })
     .catch((error: Error) => {
       console.error("Error fetching data:", error.message);
