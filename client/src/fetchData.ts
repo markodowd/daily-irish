@@ -18,7 +18,7 @@ const fetchData = () => {
   console.log(`Fetching data for day ${dayOfYear}`);
 
   axios
-    .get<ApiResponse>(`${apiUrl}/words/${dayOfYear}`)
+    .get<ApiResponse>(`${apiUrl}/data/${dayOfYear}`)
     .then((response: AxiosResponse<ApiResponse>) => {
       const { irish, english }: ApiResponse = response.data;
 
