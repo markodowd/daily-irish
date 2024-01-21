@@ -4,7 +4,6 @@ import type { Application } from "express";
 const port = process.env.PORT;
 
 const startServer = (app: Application) => {
-  // Start the server
   if (!port) {
     throw new Error("No port specified");
   }

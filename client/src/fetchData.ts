@@ -2,7 +2,7 @@ import axios from "axios";
 import type { AxiosResponse } from "axios";
 import "dotenv/config";
 import type ApiResponse from "types/ApiResponse";
-import { getDayOfYear } from "date-fns";
+import { format } from "date-fns";
 import tweet from "tweet";
 
 const apiUrl = process.env.API_URL;
@@ -12,18 +12,23 @@ if (!apiUrl) {
 }
 
 const fetchData = () => {
-  const today = new Date();
-  const dayOfYear = getDayOfYear(today);
+  const currentDate = new Date();
 
-  console.log(`Fetching data for day ${dayOfYear}`);
+  const currentMonth = format(currentDate, "MMM"); // e.g. Jan, Feb, Mar
+  const currentDayOfMonth = format(currentDate, "d"); // e.g. 1, 2, 3
+
+  console.log(`Fetching data for ${currentMonth} ${currentDayOfMonth}`);
 
   axios
-    .get<ApiResponse>(`${apiUrl}/data/${dayOfYear}`)
+    .get<ApiResponse>(`${apiUrl}/${currentMonth}/${currentDayOfMonth}`)
     .then((response: AxiosResponse<ApiResponse>) => {
-      const { irish, english }: ApiResponse = response.data;
+      const { irish, english, imageFile }: ApiResponse = response.data;
 
-      console.log(`Today - ${today}: ${irish} - ${english}`);
-      tweet(irish, english);
+      console.log(
+        `Today - ${currentMonth} ${currentDayOfMonth}: ${irish} - ${english}`
+      );
+
+      tweet(irish, english, imageFile);
     })
     .catch((error: Error) => {
       console.error("Error fetching data:", error.message);
