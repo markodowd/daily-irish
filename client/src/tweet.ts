@@ -4,7 +4,7 @@ const tweet = async (irish: string, english: string, imageFile: string) => {
   try {
     const mediaIds = await Promise.all([
       rwClient.v1.uploadMedia(
-        `../server/src/data/images/words/${imageFile}.png`
+        `../server/src/data/images/wordOfTheDay/${imageFile}.png`
       ),
     ]);
 

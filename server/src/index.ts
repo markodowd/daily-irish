@@ -1,7 +1,7 @@
 import express from "express";
 import type { Application } from "express";
 
-import startServer from "server";
+import server from "server";
 import routes from "routes";
 
 const app: Application = express();
@@ -10,4 +10,4 @@ const app: Application = express();
 routes(app);
 
 // Start Server
-startServer(app);
+server(app);

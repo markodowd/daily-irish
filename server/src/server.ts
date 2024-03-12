@@ -3,7 +3,7 @@ import type { Application } from "express";
 
 const port = process.env.PORT;
 
-const startServer = (app: Application) => {
+const server = (app: Application) => {
   if (!port) {
     throw new Error("No port specified");
   }
@@ -13,4 +13,4 @@ const startServer = (app: Application) => {
   });
 };
 
-export default startServer;
+export default server;

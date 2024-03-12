@@ -11,7 +11,7 @@ if (!apiUrl) {
   throw new Error("No API URL specified");
 }
 
-const fetchData = () => {
+const fetchWordOfTheDay = () => {
   const currentDate = new Date();
 
   const currentMonth = format(currentDate, "MMM"); // e.g. Jan, Feb, Mar
@@ -35,4 +35,4 @@ const fetchData = () => {
     });
 };
 
-export default fetchData;
+export default fetchWordOfTheDay;
