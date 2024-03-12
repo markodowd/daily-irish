@@ -6,7 +6,7 @@ import routes from "routes";
 
 const app: Application = express();
 
-// Routes
+// Routes & Routers
 routes(app);
 
 // Start Server

@@ -1,7 +1,7 @@
-type Day = {
+type Word = {
   irish: string;
   english: string;
   imageFile: string;
 };
 
-export default Day;
+export default Word;

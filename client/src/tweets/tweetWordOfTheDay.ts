@@ -1,6 +1,10 @@
 import rwClient from "twitterClient";
 
-const tweet = async (irish: string, english: string, imageFile: string) => {
+const tweetWordOfTheDay = async (
+  irish: string,
+  english: string,
+  imageFile: string
+) => {
   try {
     const mediaIds = await Promise.all([
       rwClient.v1.uploadMedia(
@@ -17,4 +21,4 @@ const tweet = async (irish: string, english: string, imageFile: string) => {
   }
 };
 
-export default tweet;
+export default tweetWordOfTheDay;

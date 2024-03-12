@@ -3,7 +3,7 @@ import type { AxiosResponse } from "axios";
 import "dotenv/config";
 import type ApiResponse from "types/ApiResponse";
 import { format } from "date-fns";
-import tweet from "tweet";
+import tweetWordOfTheDay from "tweets/tweetWordOfTheDay";
 
 const apiUrl = process.env.API_URL;
 
@@ -28,7 +28,7 @@ const fetchWordOfTheDay = () => {
         `Today - ${currentMonth} ${currentDayOfMonth}: ${irish} - ${english}`
       );
 
-      tweet(irish, english, imageFile);
+      tweetWordOfTheDay(irish, english, imageFile);
     })
     .catch((error: Error) => {
       console.error("Error fetching data:", error.message);
