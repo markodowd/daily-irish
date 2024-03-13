@@ -1,7 +1,7 @@
-type Word = {
+type Translation = {
   irish: string;
   english: string;
   imageFile: string;
 };
 
-export default Word;
+export default Translation;

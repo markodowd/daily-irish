@@ -9,16 +9,4 @@ phrases.get("/", (req: Request, res: Response) => {
   res.json(phrasesData);
 });
 
-phrases.get("/:id", (req: Request, res: Response) => {
-  const id = parseInt(req.params.id);
-
-  if (id >= 0) {
-    const phrase = phrasesData[id];
-
-    res.json(phrase);
-  } else {
-    res.status(400).send("Invalid id");
-  }
-});
-
 export default phrases;

@@ -1,7 +1,7 @@
-type Colour = {
+type Translation = {
   irish: string;
   english: string;
   imageFile: string;
 };
 
-export default Colour;
+export default Translation;

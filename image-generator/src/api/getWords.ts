@@ -1,5 +1,5 @@
-const getWordOfTheDay = async (month: string, day: string) => {
-  const res = await fetch(`http://localhost:3001/${month}/${day}`);
+const getWords = async () => {
+  const res = await fetch(`http://localhost:3001/words`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -11,4 +11,4 @@ const getWordOfTheDay = async (month: string, day: string) => {
   return res.json();
 };
 
-export default getWordOfTheDay;
+export default getWords;

@@ -1,5 +1,5 @@
-const getDayOfTheWeek = async (day: string) => {
-  const res = await fetch(`http://localhost:3001/days/${day}`);
+const getColours = async () => {
+  const res = await fetch(`http://localhost:3001/colours`);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -9,4 +9,4 @@ const getDayOfTheWeek = async (day: string) => {
   return res.json();
 };
 
-export default getDayOfTheWeek;
+export default getColours;
