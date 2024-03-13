@@ -1,4 +1,5 @@
 import rwClient from "twitterClient";
+import generateTweetText from "utils/generateTweetText";
 
 const tweetWordOfTheDay = async (
   irish: string,
@@ -8,12 +9,12 @@ const tweetWordOfTheDay = async (
   try {
     const mediaIds = await Promise.all([
       rwClient.v1.uploadMedia(
-        `../server/src/data/images/wordOfTheDay/${imageFile}.png`
+        `../server/src/data/images/words/${imageFile}.png`
       ),
     ]);
 
     await rwClient.v2.tweet({
-      text: `Gaeilge: ${irish}\n\nEnglish: ${english}\n\n#Gaeilge #100DaysofGaeilge #365DaysofGaeilge #Irish #IrishLanguage`,
+      text: generateTweetText("Word of the Day", irish, english),
       media: { media_ids: mediaIds },
     });
   } catch (error) {
